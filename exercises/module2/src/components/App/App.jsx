@@ -1,12 +1,11 @@
 import Button from '../Button/Button'
 import Display from '../Display/Display'
-import { useState } from 'react'
-
+import useLocalStorage from 'hooks/useLocalStorage'
 const App = () => {
-    const [ counter, setCounter ] = useState(0)
-  
-    const changeCount = (delta) => setCounter(counter + parseInt(delta)) 
-  
+    const [ counter, setCounter ] = useLocalStorage("counter", 0);
+    const changeCount = (delta) => {
+        setCounter(counter + parseInt(delta))
+    }
     return (
       <div>
         <Display counter={counter}/>
